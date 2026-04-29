@@ -18,3 +18,9 @@ Chapter 4 (Improving Reasoning with Inference-Time Scaling):
     2. Temp scaling + Top p selection
     3. Self refinement (majority vote)
 
+ 
+Chapter 5 (Inference-Time Scaling Via Self-Refinement)
+- Scoring LLM with rules
+- Scoring responses based on confidence (logprob)
+- Self refinement with iterative feedback
+
