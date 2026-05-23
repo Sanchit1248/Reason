@@ -2,6 +2,7 @@
 Understanding the pipeline
 
 
+
 # Chapter 2 (Generating Text with a Pre-Trained LLM):
 - Loaded Qwen3
 - Made it generate some text
@@ -10,10 +11,12 @@ Understanding the pipeline
     2. Model compilation (x2) (Not working at the moment, will have to install Visual Studio Build Tools with the "C++ workload" and run Python from the "x64 Native Tools" prompt)
 
 
+
 # Chapter 3 (Evaluating Reasoning Models):
 - Wrapped text gen function
 - Learnt how to extract and normalize final output of LLM for math questions
 - Testing function for math dataset
+
 
   
 # Chapter 4 (Improving Reasoning with Inference-Time Scaling):
@@ -22,11 +25,14 @@ Understanding the pipeline
     2. Temp scaling + Top p selection
     3. Self refinement (majority vote)
 
+
  
 # Chapter 5 (Inference-Time Scaling Via Self-Refinement)
 - Scoring LLM with rules
 - Scoring responses based on confidence (logprob)
 - Self refinement with iterative feedback
+  
+
 
 # Chapter 6 — Training Reasoning Models with Reinforcement Learning
 
@@ -45,18 +51,17 @@ $$
 3. Score rollouts using sequence log-probabilities
 
 $$
-\log P(y|x)
+\log P(y \mid x)
 =
 \sum_{t=1}^{T_i}
-\log p_W
-\left(
+\log p_W \left(
 y_t^{(i)}
 \mid
 y_{<t}^{(i)}, x^{(i)}
 \right)
 $$
 
-4. Policy gradient loss \((-A \log P)\)
+4. Policy gradient loss ($-A \log P$)
 
 $$
 \mathcal{L}_{PG}
@@ -65,8 +70,7 @@ $$
 \sum_{i=1}^{N}
 A_i
 \sum_{t=1}^{T_i}
-\log p_W
-\left(
+\log p_W \left(
 y_t^{(i)}
 \mid
 y_{<t}^{(i)}, x^{(i)}
