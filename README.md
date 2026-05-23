@@ -30,132 +30,33 @@ Reading the chapter
 
 ### Chapter 6 (Training Reasoning Models with Reinforcement Learning):
 - RLVR using GRPO
+- 
 - GRPO stages:
       1. Rollouts
+  
       2. Rewards
-  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <msub>
-    <mtext>advantages</mtext>
-    <mi>i</mi>
-  </msub>
-  <mo>=</mo>
-  <mfrac>
-    <mrow>
-      <msub>
-        <mi>r</mi>
-        <mi>i</mi>
-      </msub>
-      <mo>&#x2212;</mo>
-      <msub>
-        <mi>&#x3BC;</mi>
-        <mi>r</mi>
-      </msub>
-    </mrow>
-    <mrow>
-      <msub>
-        <mi>&#x3C3;</mi>
-        <mi>r</mi>
-      </msub>
-      <mo>+</mo>
-      <mi>&#x3F5;</mi>
-    </mrow>
-  </mfrac>
-</math>
-
+  $$
+A_i = \frac{r_i - \mu_r}{\sigma_r + \epsilon}
+$$
+  
       3. Score rollouts with log-probs
   
+  
       4. Policy gradient loss (-A log P)
-  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <msub>
-    <mrow data-mjx-texclass="ORD">
-      <mi data-mjx-variant="-tex-calligraphic" mathvariant="script">L</mi>
-    </mrow>
-    <mrow data-mjx-texclass="ORD">
-      <mrow data-mjx-texclass="ORD">
-        <mi data-mjx-auto-op="false">PG</mi>
-      </mrow>
-    </mrow>
-  </msub>
-  <mo>=</mo>
-  <mo>&#x2212;</mo>
-  <mfrac>
-    <mn>1</mn>
-    <mi>N</mi>
-  </mfrac>
-  <munderover>
-    <mo data-mjx-texclass="OP">&#x2211;</mo>
-    <mrow data-mjx-texclass="ORD">
-      <mi>i</mi>
-      <mo>=</mo>
-      <mn>1</mn>
-    </mrow>
-    <mrow data-mjx-texclass="ORD">
-      <mi>N</mi>
-    </mrow>
-  </munderover>
-  <msub>
-    <mi>A</mi>
-    <mi>i</mi>
-  </msub>
-  <munderover>
-    <mo data-mjx-texclass="OP">&#x2211;</mo>
-    <mrow data-mjx-texclass="ORD">
-      <mi>t</mi>
-      <mo>=</mo>
-      <mn>1</mn>
-    </mrow>
-    <mrow data-mjx-texclass="ORD">
-      <msub>
-        <mi>T</mi>
-        <mi>i</mi>
-      </msub>
-    </mrow>
-  </munderover>
-  <mi>log</mi>
-  <mo data-mjx-texclass="NONE">&#x2061;</mo>
-  <msub>
-    <mi>p</mi>
-    <mi>W</mi>
-  </msub>
-  <mstyle>
-    <mspace width="-0.167em"></mspace>
-  </mstyle>
-  <mrow data-mjx-texclass="INNER">
-    <mo data-mjx-texclass="OPEN">(</mo>
-    <msubsup>
-      <mi>y</mi>
-      <mi>t</mi>
-      <mrow data-mjx-texclass="ORD">
-        <mo stretchy="false">(</mo>
-        <mi>i</mi>
-        <mo stretchy="false">)</mo>
-      </mrow>
-    </msubsup>
-    <mo>&#x2223;</mo>
-    <msubsup>
-      <mi>y</mi>
-      <mrow data-mjx-texclass="ORD">
-        <mo>&lt;</mo>
-        <mi>t</mi>
-      </mrow>
-      <mrow data-mjx-texclass="ORD">
-        <mo stretchy="false">(</mo>
-        <mi>i</mi>
-        <mo stretchy="false">)</mo>
-      </mrow>
-    </msubsup>
-    <mo>,</mo>
-    <msup>
-      <mi>x</mi>
-      <mrow data-mjx-texclass="ORD">
-        <mo stretchy="false">(</mo>
-        <mi>i</mi>
-        <mo stretchy="false">)</mo>
-      </mrow>
-    </msup>
-    <mo data-mjx-texclass="CLOSE">)</mo>
-  </mrow>
-</math>
+$$
+\mathcal{L}_{PG}
+=
+-\frac{1}{N}
+\sum_{i=1}^{N}
+A_i
+\sum_{t=1}^{T_i}
+\log p_W
+\left(
+y_t^{(i)}
+\mid
+y_{<t}^{(i)}, x^{(i)}
+\right)
+$$
 
 - Training loop for GRPO (backprop through log probs not advantages)
 
