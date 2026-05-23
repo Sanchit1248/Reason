@@ -33,15 +33,11 @@ Reading the chapter
 - 
 - GRPO stages:
       1. Rollouts
-  
       2. Rewards
   $$
 A_i = \frac{r_i - \mu_r}{\sigma_r + \epsilon}
 $$
-  
-      3. Score rollouts with log-probs
-  
-  
+      3. Score rollouts with log-probs \n
       4. Policy gradient loss (-A log P)
 $$
 \mathcal{L}_{PG}
