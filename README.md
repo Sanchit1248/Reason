@@ -1,6 +1,7 @@
 # Chapter 1
 Understanding the pipeline
 
+
 # Chapter 2 (Generating Text with a Pre-Trained LLM):
 - Loaded Qwen3
 - Made it generate some text
@@ -27,21 +28,21 @@ Understanding the pipeline
 - Scoring responses based on confidence (logprob)
 - Self refinement with iterative feedback
 
-
 # Chapter 6 — Training Reasoning Models with Reinforcement Learning
 
 ## RLVR using GRPO
 
 ### GRPO Stages
 
-1. Generate rollouts  
-2. Compute rewards  
+1. Generate rollouts
+
+2. Compute rewards
 
 $$
 A_i = \frac{r_i - \mu_r}{\sigma_r + \epsilon}
 $$
 
-3. Score rollouts using sequence log-probabilities  
+3. Score rollouts using sequence log-probabilities
 
 $$
 \log P(y|x)
