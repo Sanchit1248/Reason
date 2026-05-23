@@ -44,38 +44,15 @@ Understanding the pipeline
 
 2. Compute rewards
 
-$$
-A_i = \frac{r_i - \mu_r}{\sigma_r + \epsilon}
-$$
+$$ A_i = \frac{r_i - \mu_r}{\sigma_r + \epsilon} $$
 
 3. Score rollouts using sequence log-probabilities
 
-$$
-\log P(y \mid x)
-=
-\sum_{t=1}^{T_i}
-\log p_W \left(
-y_t^{(i)}
-\mid
-y_{<t}^{(i)}, x^{(i)}
-\right)
-$$
+$$ \log P(y \mid x) = \sum_{t=1}^{T_i} \log p_W \left( y_t^{(i)} \mid y_{<t}^{(i)}, x^{(i)} \right) $$
 
 4. Policy gradient loss ($-A \log P$)
 
-$$
-\mathcal{L}_{PG}
-=
--\frac{1}{N}
-\sum_{i=1}^{N}
-A_i
-\sum_{t=1}^{T_i}
-\log p_W \left(
-y_t^{(i)}
-\mid
-y_{<t}^{(i)}, x^{(i)}
-\right)
-$$
+$$ \mathcal{L}_{PG} = -\frac{1}{N} \sum_{i=1}^{N} A_i \sum_{t=1}^{T_i} \log p_W \left( y_t^{(i)} \mid y_{<t}^{(i)}, x^{(i)} \right) $$
 
 ### Training Loop
 
