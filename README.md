@@ -44,8 +44,7 @@ $$
 3. Score rollouts using sequence log-probabilities  
 
 $$
-\log P(y|x)
-=
+\log P(y|x) =
 \sum_{t=1}^{T_i}
 \log p_W
 \left(
