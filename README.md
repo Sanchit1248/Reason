@@ -28,17 +28,35 @@ Reading the chapter
 - Self refinement with iterative feedback
 
 
-### Chapter 6 (Training Reasoning Models with Reinforcement Learning):
+### Chapter 6 — Training Reasoning Models with Reinforcement Learning
+
 - RLVR using GRPO
-- 
-- GRPO stages:
-      1. Rollouts
-      2. Rewards
-  $$
+
+#### GRPO Stages
+
+1. Generate rollouts  
+2. Compute rewards  
+
+$$
 A_i = \frac{r_i - \mu_r}{\sigma_r + \epsilon}
 $$
-      3. Score rollouts with log-probs \n
-      4. Policy gradient loss (-A log P)
+
+3. Score rollouts using sequence log-probabilities  
+
+$$
+\log P(y|x)
+=
+\sum_{t=1}^{T_i}
+\log p_W
+\left(
+y_t^{(i)}
+\mid
+y_{<t}^{(i)}, x^{(i)}
+\right)
+$$
+
+4. Policy gradient loss \((-A \log P)\)
+
 $$
 \mathcal{L}_{PG}
 =
@@ -54,5 +72,5 @@ y_{<t}^{(i)}, x^{(i)}
 \right)
 $$
 
-- Training loop for GRPO (backprop through log probs not advantages)
+- Training Loop : Backpropagation occurs through the sequence log-probabilities, **not through the advantages**.
 
