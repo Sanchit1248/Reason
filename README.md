@@ -55,3 +55,11 @@ $$ \mathcal{L}_{PG} = -\frac{1}{N} \sum_{i=1}^{N} A_i \sum_{t=1}^{T_i} \log p_W 
 ### Training Loop
 
 Backpropagation occurs through the sequence log-probabilities, **not through the advantages**.
+
+
+
+# Chapter 7 (Improving GRPO):
+- Added <reason> token and in training loop
+- Added KL-divergence in training loop
+
+
