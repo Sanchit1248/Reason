@@ -63,3 +63,12 @@ Backpropagation occurs through the sequence log-probabilities, **not through the
 - Added KL-divergence in training loop
 
 
+# Chapter 8 (Implementing Distillation):
+- 2 types: hard (uses argmax logit of teacher) + soft (uses entire logit distribution)
+- Implemented hard (easier and effective)
+- Found out hard distillation is a fancy term for SFT w/o the human (shocker)
+- Cleaned and formatted dataset
+- Implemented training loop
+
+
+
