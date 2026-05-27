@@ -34,7 +34,7 @@ Understanding the pipeline
   
 
 
-# Chapter 6 — Training Reasoning Models with Reinforcement Learning
+# Chapter 6 (Training Reasoning Models with Reinforcement Learning)
 
 ## RLVR using GRPO
 
